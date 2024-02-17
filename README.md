@@ -36,9 +36,11 @@ This notebook utilizes the Textractor library to interact with Amazon Textract a
     <img src="images/table chunkers.png" width="900" height=500/>
     
     - **List:** Chunking lists found in documents can be challenging. Naive chunking methods often split list items by sentence or newline characters. However, this approach presents issues as only the first list chunk typically contains the list title, which provides essential information about the list items. Consequently, subsequent list chunks become obsolete. In this notebook, lists are chunked based on their individual list items. Additionally, the header of the list is appended to each list chunk to ensure that the information of the list is preserved in each chunk.
+    
     <img src="images/list chunker.png" width="900" height=500/>
     
     - **Section and subsection:** The structure of a document can generally be categorized into titles, sections, and paragraphs. A paragraph is typically the smallest unit of a document that conveys information independently, particularly within the context of a section or subsection header. In this method, text sections are chunked based on paragraphs, and the section header is added to each paragraph chunk (as well as tables and lists) within that section of the document.
+    
     <img src="images/text chunks.png" width="900" height=500/>
     
 6. Metadata is appended to each respective chunk during indexing, encompassing:
