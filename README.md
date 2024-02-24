@@ -34,6 +34,10 @@ This notebook utilizes the Textractor library to interact with Amazon Textract a
     - **Tables:** Tables are chunked row by row until the maximum number of alphanumeric words is reached. For each table chunk, the column headers are added to the table along with the table header, typically the sentence or paragraph preceding the table in the document. This ensures that the information of the table is retained in each chunk.
     
     <img src="images/table-chunkers.png" width="900" height=500/>
+
+    To handle tables with merged cells, this solution first unmerges any merged cell ranges, then duplicates the original merged cell value into each of the corresponding individual cells after unmerging.
+
+    <img src="images/complex-tables.png" width="800" height=700/>
     
     - **List:** Chunking lists found in documents can be challenging. Naive chunking methods often split list items by sentence or newline characters. However, this approach presents issues as only the first list chunk typically contains the list title, which provides essential information about the list items. Consequently, subsequent list chunks become obsolete. In this notebook, lists are chunked based on their individual list items. Additionally, the header of the list is appended to each list chunk to ensure that the information of the list is preserved in each chunk.
     
@@ -43,7 +47,7 @@ This notebook utilizes the Textractor library to interact with Amazon Textract a
     
     <img src="images/text-chunks.png" width="900" height=500/>
     
-6. Metadata is appended to each respective chunk during indexing, encompassing:
+7. Metadata is appended to each respective chunk during indexing, encompassing:
     - The entire CSV tables detected within the chunk.
     - The section header ID associated with the chunk.
     - The section title ID linked to the chunk.
