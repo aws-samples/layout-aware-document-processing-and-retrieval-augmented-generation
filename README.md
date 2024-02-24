@@ -37,7 +37,7 @@ This notebook utilizes the Textractor library to interact with Amazon Textract a
 
     To handle tables with merged cells, this solution first unmerges any merged cell ranges, then duplicates the original merged cell value into each of the corresponding individual cells after unmerging.
 
-    <img src="images/complex-tables.png" width="400" height=500/>
+    <img src="images/complex-tables.png" width="800" height=500/>
     
     - **List:** Chunking lists found in documents can be challenging. Naive chunking methods often split list items by sentence or newline characters. However, this approach presents issues as only the first list chunk typically contains the list title, which provides essential information about the list items. Consequently, subsequent list chunks become obsolete. In this notebook, lists are chunked based on their individual list items. Additionally, the header of the list is appended to each list chunk to ensure that the information of the list is preserved in each chunk.
     
