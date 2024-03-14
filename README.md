@@ -47,12 +47,12 @@ This notebook utilizes the Textractor library to interact with Amazon Textract a
     
     <img src="images/text-chunks.png" width="900" height=500/>
     
-7. Metadata is appended to each respective chunk during indexing, encompassing:
+7. We save (in S3, but can be any other database) the corresponding header section and chapter of the chunks, to create a child-parent-grandparent hierarchy (chunk-section-chapter). This sets the foundation for implementing advanced retrieval techniques like Small2Big, Graph query etc. Metadata is appended to each respective chunk during indexing, encompassing:
     - The entire CSV tables detected within the chunk.
     - The section header ID associated with the chunk.
     - The section title ID linked to the chunk.
     
-    When retrieving a passage based on hybrid search (combining semantic and text matching), there's flexibility in the amount of content forwarded to the LLM. Some queries may necessitate additional information, allowing users to choose whether to send the corresponding chunk subsection or title section based on the specific use case.
+    When retrieving a passage based on hybrid search (combining semantic and text matching), there's flexibility in the amount of content forwarded to the LLM. Some queries may necessitate additional information, allowing users to choose whether to send the corresponding chunk section header or section chapter based on the specific use case.
     
 ## RETRIEVAL AUGMENTED GENERATION
 
