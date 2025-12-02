@@ -59,3 +59,6 @@ This notebook utilizes the Textractor library to interact with Amazon Textract a
 <img src="images/rag-sect.jpg" width="800"/>
 
 In the RAG process, we retrieve the top K=n similar passages from the Vector Database (Amazon OpenSearch Service). Subsequently, we generate a prompt template using any hierarchical section of the retrieved passages, indexed as metadata. This flexibility allows us to adjust the quantity of information forwarded to the LLM, facilitating the generation of contextual answers. 
+
+## Citation
+The inspiration for this project came from this [blog](https://ambikasukla.substack.com/p/efficient-rag-with-document-layout) post.
